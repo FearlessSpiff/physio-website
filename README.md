@@ -11,28 +11,13 @@ A modern website for a physiotherapy practice that combines clinical treatment w
 
 ---
 
-## Getting Started
-
-### 1. Start PocketBase
+## Quick Start (Docker)
 
 ```bash
-cd pocketbase
-./download.sh   # downloads the PocketBase binary for your OS/arch
-./start.sh      # starts the server on http://127.0.0.1:8090
+docker compose up --build
 ```
 
-On first start, open `http://127.0.0.1:8090/_/` to create your admin account. Migrations run automatically and will:
-
-- Create the `courses`, `gallery`, and `contact_messages` collections
-- Seed 4 sample courses in Swiss cities
-
-### 2. Start the frontend
-
-```bash
-cd frontend
-npm install
-npm run dev     # runs on http://localhost:5173
-```
+Open `http://localhost:8090` for the site and `http://localhost:8090/_/` to set up your admin account. Migrations run automatically on first start and create all collections with sample course data.
 
 ---
 
@@ -91,14 +76,64 @@ VITE_POCKETBASE_URL=https://your-pocketbase-domain.com
 
 ---
 
-## Production
+## Docker
+
+The recommended way to run in production. A single container serves both the frontend and the PocketBase API — no Nginx or reverse proxy needed.
+
+**How it works:** the multi-stage Dockerfile builds the Vue app, downloads the PocketBase binary, and drops the built frontend into `pb_public/`. PocketBase natively serves that folder as static files.
+
+```
+GET /          → frontend (Vue SPA)
+GET /api/...   → PocketBase REST API
+GET /_/        → PocketBase admin UI
+```
+
+### Build & run
+
+```bash
+# With Docker Compose (recommended)
+docker compose up --build
+
+# Or plain Docker
+docker build -t physio-lisa .
+docker run -p 8090:8090 -v physio_data:/pb/pb_data physio-lisa
+```
+
+Then open `http://localhost:8090` — the site and admin panel are both available.
+
+### Data persistence
+
+The `pb_data` Docker volume keeps the database, uploaded photos, and logs alive across container restarts. Back up this volume before any destructive operations.
+
+---
+
+## Development
+
+Run the frontend and PocketBase separately for a faster dev loop:
+
+```bash
+# Terminal 1 — PocketBase
+cd pocketbase
+./download.sh   # first time only
+./start.sh      # http://127.0.0.1:8090
+
+# Terminal 2 — Frontend (hot reload)
+cd frontend
+npm install     # first time only
+npm run dev     # http://localhost:5173
+```
+
+`frontend/.env.development` points the SDK at `http://127.0.0.1:8090` automatically. In Docker, the SDK falls back to `window.location.origin` since both run on the same port.
+
+---
+
+## Production (without Docker)
 
 1. Build the frontend:
    ```bash
    cd frontend && npm run build
    ```
-   The `dist/` folder can be served by any static host (Nginx, Caddy, etc.).
+2. Copy `dist/` into `pocketbase/pb_public/`.
+3. Run `./pocketbase serve --http=0.0.0.0:8090`.
 
-2. Run PocketBase on your server and expose it via a reverse proxy.
-
-3. Make sure your reverse proxy allows CORS from your frontend domain, or configure it in the PocketBase admin under **Settings → Application**.
+PocketBase serves the static files directly — no separate web server required.
