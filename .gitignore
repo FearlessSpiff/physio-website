@@ -1,0 +1,25 @@
+# PocketBase
+pocketbase/pocketbase
+pocketbase/pocketbase.zip
+pocketbase/pb_data/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
