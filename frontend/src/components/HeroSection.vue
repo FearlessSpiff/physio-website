@@ -11,20 +11,20 @@ const scrollToAbout = () => {
   <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
     <!-- Animated background orbs -->
     <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-700/20 rounded-full blur-[120px] animate-float" />
-      <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-purple-600/15 rounded-full blur-[100px] animate-float-delay" />
-      <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-indigo-700/10 rounded-full blur-[80px] animate-float-slow" />
-      <!-- Grid overlay -->
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/15 rounded-full blur-[120px] animate-float" />
+      <div class="absolute bottom-1/3 right-1/4 w-80 h-80 bg-lime-500/10 rounded-full blur-[100px] animate-float-delay" />
+      <div class="absolute top-1/2 right-1/3 w-64 h-64 bg-teal-600/10 rounded-full blur-[80px] animate-float-slow" />
+      <!-- Subtle grid overlay -->
       <div
         class="absolute inset-0 opacity-[0.03]"
-        style="background-image: linear-gradient(rgba(167,139,250,1) 1px, transparent 1px), linear-gradient(90deg, rgba(167,139,250,1) 1px, transparent 1px); background-size: 60px 60px;"
+        style="background-image: linear-gradient(rgba(26,171,179,1) 1px, transparent 1px), linear-gradient(90deg, rgba(26,171,179,1) 1px, transparent 1px); background-size: 60px 60px;"
       />
     </div>
 
     <div class="relative max-w-6xl mx-auto px-6 pt-28 pb-20 w-full">
       <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-600/15 border border-violet-500/30 text-violet-300 text-sm font-medium mb-8">
-          <span class="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/15 border border-teal-500/30 text-teal-300 text-sm font-medium mb-8">
+          <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
           Physiotherapy · Yoga · Pilates
         </div>
 
@@ -34,7 +34,7 @@ const scrollToAbout = () => {
           Thrive.
         </h1>
 
-        <p class="text-violet-200/60 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+        <p class="text-slate-300/70 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
           A physiotherapy practice that goes beyond the clinic — combining expert clinical care with yoga and Pilates courses designed to restore, strengthen, and sustain your body for life.
         </p>
 
@@ -54,16 +54,16 @@ const scrollToAbout = () => {
         <div class="mt-16 flex flex-wrap gap-8">
           <div v-for="stat in [['12+', 'Years Experience'], ['200+', 'Patients Treated'], ['60+', 'Courses Held']]" :key="stat[0]">
             <div class="font-display text-3xl font-bold text-gradient">{{ stat[0] }}</div>
-            <div class="text-violet-300/50 text-sm mt-1">{{ stat[1] }}</div>
+            <div class="text-slate-400 text-sm mt-1">{{ stat[1] }}</div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-violet-400/40 text-xs">
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 text-xs">
       <span>Scroll</span>
-      <div class="w-px h-8 bg-gradient-to-b from-violet-400/40 to-transparent" />
+      <div class="w-px h-8 bg-gradient-to-b from-slate-500 to-transparent" />
     </div>
   </section>
 </template>

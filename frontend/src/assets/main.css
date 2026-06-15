@@ -8,11 +8,11 @@
   }
 
   body {
-    @apply bg-dark-950 text-violet-100 font-sans antialiased;
+    @apply bg-brand-900 text-slate-100 font-sans antialiased;
   }
 
   ::selection {
-    @apply bg-violet-600 text-white;
+    @apply bg-teal-500 text-white;
   }
 
   ::-webkit-scrollbar {
@@ -20,11 +20,11 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-dark-900;
+    @apply bg-brand-900;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-violet-700 rounded-full;
+    @apply bg-teal-600 rounded-full;
   }
 }
 
@@ -34,15 +34,15 @@
   }
 
   .glass-card {
-    @apply bg-dark-700/60 backdrop-blur-sm border border-violet-900/40 rounded-2xl;
+    @apply bg-brand-700/60 backdrop-blur-sm border border-brand-500/40 rounded-2xl;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-500 text-white font-medium rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-violet-600/30 active:scale-95;
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-teal-500/30 active:scale-95;
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 px-6 py-3 border border-violet-600/60 text-violet-300 hover:border-violet-500 hover:text-white font-medium rounded-xl transition-all duration-200 hover:bg-violet-600/10;
+    @apply inline-flex items-center gap-2 px-6 py-3 border border-teal-500/60 text-teal-300 hover:border-teal-400 hover:text-white font-medium rounded-xl transition-all duration-200 hover:bg-teal-500/10;
   }
 
   .section-heading {
@@ -50,20 +50,20 @@
   }
 
   .section-subheading {
-    @apply text-violet-300/70 text-lg mt-3;
+    @apply text-slate-400 text-lg mt-3;
   }
 
   .input-field {
-    @apply w-full bg-dark-700/80 border border-violet-900/50 text-violet-100 placeholder-violet-400/40 rounded-xl px-4 py-3 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500/50 transition-colors;
+    @apply w-full bg-brand-700/80 border border-brand-500/50 text-slate-100 placeholder-slate-500 rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/50 transition-colors;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-300;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-lime-500;
   }
 
-  .glow-violet {
-    box-shadow: 0 0 40px rgba(124, 58, 237, 0.3);
+  .glow-teal {
+    box-shadow: 0 0 40px rgba(26, 171, 179, 0.25);
   }
 }

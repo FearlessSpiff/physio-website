@@ -4,12 +4,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: {
-          950: '#060412',
-          900: '#0a0814',
-          800: '#120f28',
-          700: '#1c1838',
-          600: '#26224e',
+        // Dark slate family — background is rgb(67,81,94) = #43515e
+        brand: {
+          950: '#0e1519',
+          900: '#151f26',
+          800: '#1c2a33',
+          700: '#243340',
+          600: '#2d3e4c',
+          500: '#43515e', // given bg color — used for borders/dividers
+          400: '#5a6e7d',
+        },
+        // Teal — primary accent from logo
+        teal: {
+          300: '#5dd8df',
+          400: '#2dc5cd',
+          500: '#1aabb3',
+          600: '#148e96',
+          700: '#0e7178',
+        },
+        // Lime green — secondary accent from logo
+        lime: {
+          400: '#bfe040',
+          500: '#9dc922',
+          600: '#7ea81b',
         },
       },
       fontFamily: {

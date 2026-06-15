@@ -29,16 +29,15 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 <template>
   <header
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-    :class="isScrolled ? 'glass border-b border-violet-900/30 py-3' : 'py-5'"
+    :class="isScrolled ? 'glass border-b border-brand-500/30 py-2' : 'py-4'"
   >
     <nav class="max-w-6xl mx-auto px-6 flex items-center justify-between">
-      <a href="#home" @click.prevent="scrollTo('#home')" class="flex items-center gap-2 group">
-        <div class="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center group-hover:bg-violet-500 transition-colors">
-          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-          </svg>
-        </div>
-        <span class="font-display font-bold text-xl text-white">PhysioFlow</span>
+      <a href="#home" @click.prevent="scrollTo('#home')" class="flex items-center group">
+        <img
+          src="/logo.png"
+          alt="Physio-Lisa.ch"
+          class="h-12 w-auto transition-opacity duration-200 group-hover:opacity-80"
+        />
       </a>
 
       <!-- Desktop links -->
@@ -47,7 +46,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           <a
             :href="link.href"
             @click.prevent="scrollTo(link.href)"
-            class="px-4 py-2 text-violet-200/70 hover:text-white text-sm font-medium rounded-lg hover:bg-violet-600/15 transition-all duration-200"
+            class="px-4 py-2 text-slate-300/80 hover:text-white text-sm font-medium rounded-lg hover:bg-teal-500/15 transition-all duration-200"
           >
             {{ link.label }}
           </a>
@@ -60,7 +59,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
       <!-- Mobile toggle -->
       <button
-        class="md:hidden p-2 text-violet-300 hover:text-white transition-colors"
+        class="md:hidden p-2 text-slate-400 hover:text-white transition-colors"
         @click="mobileOpen = !mobileOpen"
         aria-label="Toggle menu"
       >
@@ -82,13 +81,13 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-2"
     >
-      <div v-if="mobileOpen" class="md:hidden glass border-t border-violet-900/30 px-6 py-4">
+      <div v-if="mobileOpen" class="md:hidden glass border-t border-brand-500/30 px-6 py-4">
         <ul class="flex flex-col gap-1">
           <li v-for="link in navLinks" :key="link.href">
             <a
               :href="link.href"
               @click.prevent="scrollTo(link.href)"
-              class="block px-4 py-3 text-violet-200/70 hover:text-white text-sm font-medium rounded-lg hover:bg-violet-600/15 transition-all duration-200"
+              class="block px-4 py-3 text-slate-300/80 hover:text-white text-sm font-medium rounded-lg hover:bg-teal-500/15 transition-all duration-200"
             >
               {{ link.label }}
             </a>
